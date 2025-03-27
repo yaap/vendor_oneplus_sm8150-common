@@ -506,6 +506,27 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+	name: "liboemnvbk_img_helper",
+	owner: "oneplus",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/vendor/lib/liboemnvbk_img_helper.so"],
+			shared_libs: ["libcutils", "libutils", "liblog", "libc++", "libc", "libm", "libdl", ],
+		},
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/liboemnvbk_img_helper.so"],
+			shared_libs: ["libcutils", "libutils", "liblog", "libc++", "libc", "libm", "libdl", ],
+		},
+	},
+	compile_multilib: "both",
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
 	name: "libopf",
 	owner: "oneplus",
 	strip: {
@@ -4199,6 +4220,41 @@ cc_prebuilt_library_shared {
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/liblqe.so"],
 			shared_libs: ["libdiag", "libdsutils", "libcutils", "libqmiservices", "libqmi_cci", "libqmi_common_so", "libqmi_client_helper", "liblog", "libc++", "libc", "libm", "libdl", ],
+		},
+	},
+	compile_multilib: "64",
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libmdmdetect_vendor",
+	stem: "libmdmdetect",
+	owner: "oneplus",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/libmdmdetect.so"],
+			shared_libs: ["libcutils", "libutils", "liblog", "libc++", "libc", "libm", "libdl", ],
+		},
+	},
+	compile_multilib: "64",
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libmdmimgload",
+	owner: "oneplus",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/libmdmimgload.so"],
+			shared_libs: ["libcutils", "libutils", "liblog", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
@@ -8744,6 +8800,14 @@ cc_prebuilt_binary {
 	soc_specific: true,
 }
 
+sh_binary {
+	name: "init.mdm",
+	owner: "oneplus",
+	src: "proprietary/vendor/bin/init.mdm.sh",
+	filename: "init.mdm.sh",
+	soc_specific: true,
+}
+
 cc_prebuilt_binary {
 	name: "irsc_util",
 	owner: "oneplus",
@@ -8751,6 +8815,23 @@ cc_prebuilt_binary {
 		android_arm64: {
 			srcs: ["proprietary/vendor/bin/irsc_util"],
 			shared_libs: ["liblog", "libc++", "libc", "libm", "libdl", ],
+		},
+	},
+	compile_multilib: "64",
+	strip: {
+		none: true,
+	},
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_binary {
+	name: "ks",
+	owner: "oneplus",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/ks"],
+			shared_libs: ["libc", "libcutils", "libutils", "liblog", "libc++", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
@@ -8797,6 +8878,40 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_binary {
+	name: "mdm_helper",
+	owner: "oneplus",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/mdm_helper"],
+			shared_libs: ["libcutils", "libutils", "liblog", "libmdmdetect_vendor", "libmdmimgload", "libc++", "libc", "libm", "libdl", ],
+		},
+	},
+	compile_multilib: "64",
+	strip: {
+		none: true,
+	},
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_binary {
+	name: "mdm_helper_proxy",
+	owner: "oneplus",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/mdm_helper_proxy"],
+			shared_libs: ["libcutils", "libutils", "liblog", "libmdmdetect_vendor", "libmdmimgload", "libc++", "libc", "libm", "libdl", ],
+		},
+	},
+	compile_multilib: "64",
+	strip: {
+		none: true,
+	},
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_binary {
 	name: "mlid",
 	owner: "oneplus",
 	target: {
@@ -8820,6 +8935,23 @@ cc_prebuilt_binary {
 		android_arm64: {
 			srcs: ["proprietary/vendor/bin/netmgrd"],
 			shared_libs: ["libdsutils", "libconfigdb", "libdiag", "libcutils", "liblog", "libnetutils", "librmnetctl", "libnlnetmgr", "libnetmgr", "libnetmgr_common", "libqmiservices", "libqmi_common_so", "libqmi_cci", "libqmi_client_qmux", "libqmi_client_helper", "libqmi", "libutils", "libhidlbase", "libandroid_net", "android.system.net.netd@1.1", "libqti_vndfwk_detect", "libcneapiclient", "libbinder", "libc++", "libc", "libm", "libdl", ],
+		},
+	},
+	compile_multilib: "64",
+	strip: {
+		none: true,
+	},
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_binary {
+	name: "oemnvbkdaemon",
+	owner: "oneplus",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/oemnvbkdaemon"],
+			shared_libs: ["libcutils", "libutils", "liblog", "liboemnvbk_img_helper", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",

@@ -200,6 +200,7 @@ PRODUCT_PACKAGES += \
     libfastcvopt \
     libmdsprpc \
     libmmosal_vendor \
+    liboemnvbk_img_helper \
     libopf \
     libscveCommon \
     libscveCommon_stub \
@@ -411,6 +412,8 @@ PRODUCT_PACKAGES += \
     liblowi_client \
     liblowi_wifihal \
     liblqe \
+    libmdmdetect_vendor \
+    libmdmimgload \
     libminkdescriptor \
     libminksocket \
     libmorpho_image_refiner \
@@ -698,11 +701,16 @@ PRODUCT_PACKAGES += \
     imsdatadaemon \
     imsqmidaemon \
     imsrcsd \
+    init.mdm \
     irsc_util \
+    ks \
     loc_launcher \
     lowi-server \
+    mdm_helper \
+    mdm_helper_proxy \
     mlid \
     netmgrd \
+    oemnvbkdaemon \
     opf-service \
     pd-mapper \
     pm-proxy \
